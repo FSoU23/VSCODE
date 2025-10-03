@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Визитка — Каташинский Александр</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</head>
+<body class="dark">
+
+<div class="theme-toggle">
+  <button id="toggleTheme">☀️</button>
+</div>
+
+<main class="card">
+  <aside class="sidebar">
+    <img class="avatar" src="C:\Users\FSoU\Desktop\я.jpg" alt="Фото">
+    <h1 class="name">Каташинский Александр</h1>
+    <p class="tagline">Программист</p>
+
+    <div class="contacts">
+      <h2>Контакты</h2>
+      <button onclick="openModal('Email', 'gofun2006@gmail.com')">
+        <i class="fas fa-envelope"></i> Email
+      </button>
+      <button onclick="openModal('Телефон', '+37377508050')">
+        <i class="fas fa-phone"></i> Телефон
+      </button>
+      <button onclick="navigator.clipboard.writeText('@Wnehlop'); alert('Telegram @Wnehlop скопирован!')">
+        <i class="fab fa-telegram"></i> Telegram
+      </button>
+    </div>
+  </aside>
+
+  <section class="content">
+    <div class="about">
+      <h2>Обо мне</h2>
+      <p>Я начинающий программист, изучаю C, C# и ассемблер. Хочу развиваться в сфере IT и создавать полезные программы или интересные сайты.  
+      Люблю учиться новому и постоянно ищу задачи, которые помогают прокачивать навыки.</p>
+    </div>
+
+    <div class="hobbies">
+      <h2>Хобби</h2>
+      <ul>
+        <li>Создание программ и сайтов</li>
+        <li>Компьютерные игры и киберспорт</li>
+        <li>Игра на гитаре</li>
+        <li>Кулинария и новые рецепты</li>
+      </ul>
+    </div>
+
+    <div class="projects">
+        <h2>Мои проекты</h2>
+        <button class="projects-btn" onclick="openModal('Проекты', 'В разработке...')">Мои проекты 🚀</button>
+      </div>
+      
+
+<footer class="card-footer">
+  <small>© <span id="year"></span> Каташинский Александр</small>
+</footer>
+
+<!-- Модальное окно -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalInfo"></p>
+  </div>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const btn = document.getElementById('toggleTheme');
+btn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+});
+
+// Модальное окно
+function openModal(title, info) {
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalInfo").textContent = info;
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+</body>
+</html>
